@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Invoice List</h2>
+
+<%= form_with url: signature_selected_path, local: true, method: 'get' do |f| %>
+  <%= f.label(:customer, 'Customer:') %>
+  <%= f.select(:customer, options_for_select(@customer, @selected_customer)) %>
+  <%= f.submit "Change" %>
+<% end %>
+
+<br>
+
+<table id="normal_dt"  class="stripe" class="mytable" class="display" cellspacing="0" >
+  <thead>
+    <tr>
+      <th> Invoice </th>
+      <th> Order </th>
+      <th> Release </th>
+      <th> View </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @invoices.each do |invoice| %>
+      <tr>
+        <td><%= invoice.invoice_numb %></td>
+        <td><%= invoice.order_numb %></td>
+        <td><%= invoice.rel_numb %></td>
+        <td> <%= link_to 'View', signature_invoice_path(invoice: invoice.invoice_numb, order: invoice.order_numb, release: invoice.rel_numb) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
