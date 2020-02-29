@@ -57,5 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #
 gem 'dotenv'
 gem 'whenever', require: false
-gem 'rake', '12.3.2'
+gem 'rake', '12.3.3'
 gem 'faraday'
